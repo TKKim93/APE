@@ -46,5 +46,5 @@ python main.py --method S+T --dataset multi --source real --target sketch --earl
 ```
 
 ### checkpoint samples
-* (DomainNet) Real to Sketch [BaseNet](https://drive.google.com/file/d/1mwG1ClXzsyC3Pvq7WnlJfvtVwZdlQLxy/view?usp=sharing)
-                             [Classifier](https://drive.google.com/file/d/1cO8YEaFWykRw7Pzw-xJcWx3ERioUBp_L/view?usp=sharing)
+* (DomainNet) Real to Sketch  [BaseNet](https://drive.google.com/file/d/1mwG1ClXzsyC3Pvq7WnlJfvtVwZdlQLxy/view?usp=sharing) / 
+                              [Classifier](https://drive.google.com/file/d/1cO8YEaFWykRw7Pzw-xJcWx3ERioUBp_L/view?usp=sharing)
