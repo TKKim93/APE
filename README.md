@@ -1,6 +1,16 @@
 # Attract, Perturb, and Explore: Learning a Feature Alignment Network for Semi-supervised Domain Adaptation
 
 ### Dependency
+* CUDA 10.0 or 10.1
+* Python 3.6
+* Pytorch 1.0.1
+```
+conda install pytorch==1.0.1 torchvision==0.2.2 cudatoolkit=10.0 -c pytorch
+```
+* Other libraries
+```
+pip install -r requirements.txt
+```
 
 ### Dataset Structure
 ```
