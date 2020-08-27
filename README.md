@@ -1,5 +1,9 @@
 # Attract, Perturb, and Explore: Learning a Feature Alignment Network for Semi-supervised Domain Adaptation
 
+### Acknowledgment
+
+The implementation is built on the pytorch implementation of [SSDA_MME](https://github.com/jwyang/faster-rcnn.pytorch) and we refer specific module in [DTA](https://github.com/postBG/DTA.pytorch)
+
 ### Dependency
 * CUDA 10.0 or 10.1
 * Python 3.6
