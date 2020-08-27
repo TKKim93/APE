@@ -4,14 +4,15 @@
 
 The implementation is built on the pytorch implementation of [SSDA_MME](https://github.com/jwyang/faster-rcnn.pytorch) and we refer specific module in [DTA](https://github.com/postBG/DTA.pytorch)
 
-### Dependency
+### Prerequisites
+
 * CUDA 10.0 or 10.1
 * Python 3.6
 * Pytorch 1.0.1
 ```
 conda install pytorch==1.0.1 torchvision==0.2.2 cudatoolkit=10.0 -c pytorch
 ```
-* Other libraries
+* Other dependencies
 ```
 pip install -r requirements.txt
 ```
@@ -53,8 +54,9 @@ data---
                  ...       
 ```
 
-### Train
-#### DomainNet 
+### Example
+#### Train
+* DomainNet 
 ```
 python main.py --method S+T --dataset multi --source real --target sketch --early --save_interval 5000 --steps 70000 --net resnet34 --session multi_r2s --thr 0.5 --num 3
 ```
