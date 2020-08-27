@@ -11,28 +11,31 @@ data---
      |  Clipart
      |  Product
      |  Real
-   office_home
-    ...
-   office
-    ...
+   office_home---
+     |         |
+     |        ...
+   office---
+     |    |
+     |   ...
    txt---
        | 
       multi---
-            |
-           labeled_source_images_real.txt
-           unlabeled_target_images_real_3.txt
-           labeled_target_images_real_3.txt         
-           unlabeled_source_images_sketch.txt
-                          ...
+       |    |
+       |   labeled_source_images_real.txt
+       |   unlabeled_target_images_real_3.txt
+       |   labeled_target_images_real_3.txt         
+       |   unlabeled_source_images_sketch.txt
+       |                  ...
       office---
-             |
-           labeled_source_images_amazon.txt
-           unlabeled_target_images_amazon_3.txt
-           labeled_target_images_amazon_3.txt         
-           unlabeled_source_images_webcam.txt
-                          ...
-      office_home
-       ...
+       |     |
+       |   labeled_source_images_amazon.txt
+       |   unlabeled_target_images_amazon_3.txt
+       |   labeled_target_images_amazon_3.txt         
+       |   unlabeled_source_images_webcam.txt
+       |                  ...
+      office_home---
+                  |
+                 ...       
 ```
 
 ### Train
