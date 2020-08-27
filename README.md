@@ -2,7 +2,7 @@
 
 ### Acknowledgment
 
-The implementation is built on the pytorch implementation of [SSDA_MME](https://github.com/jwyang/faster-rcnn.pytorch) and we refer a specific module in [DTA](https://github.com/postBG/DTA.pytorch)
+The implementation is built on the pytorch implementation of [SSDA_MME](https://github.com/jwyang/faster-rcnn.pytorch) and we refer a specific module in [DTA].(https://github.com/postBG/DTA.pytorch)
 
 ### Prerequisites
 
@@ -18,6 +18,7 @@ pip install -r requirements.txt
 ```
 
 ### Dataset Structure
+You can download the datasets by following the instructions in [SSDA_MME](https://github.com/jwyang/faster-rcnn.pytorch).
 ```
 data---
      |
@@ -56,10 +57,12 @@ data---
 
 ### Example
 #### Train
-* DomainNet 
+* DomainNet (real, clipart, painting, sketch)
 ```
 python main.py --method S+T --dataset multi --source real --target sketch --early --save_interval 5000 --steps 70000 --net resnet34 --session multi_r2s --thr 0.5 --num 3
 ```
+* Office-home (Real, Clipart, Product, Art)
+* Office (amazon, dslr, webcam)
 
 ### checkpoint samples
 * (DomainNet) Real to Sketch  [BaseNet](https://drive.google.com/file/d/1mwG1ClXzsyC3Pvq7WnlJfvtVwZdlQLxy/view?usp=sharing) / 
