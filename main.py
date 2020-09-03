@@ -30,7 +30,7 @@ parser.add_argument('--save_check', action='store_true', default=False,
                     help='save checkpoint or not')
 parser.add_argument('--checkpath', type=str, default='./checkpoints',
                     help='dir to save checkpoint')
-parser.add_argument('--save_interval', type=int, default=1000, metavar='N',
+parser.add_argument('--save_interval', type=int, default=5000, metavar='N',
                     help='how many batches to wait before saving a model')
 parser.add_argument('--net', type=str, default='alexnet',
                     help='which network to use')
@@ -43,6 +43,8 @@ parser.add_argument('--dataset', type=str, default='multi',
                     help='the name of dataset')
 parser.add_argument('--num', type=int, default=3,
                     help='number of labeled examples in the target')
+parser.add_argument('--thr', type=float, default=0.5,
+                    help='threshold for exploration scheme')
 
 args = parser.parse_args()
 source_loader, target_loader, target_loader_unl, target_loader_val, \
@@ -233,7 +235,7 @@ def train():
         # exploration scheme
         pred = out_F1_tu.data.max(1)[1].detach()
         ent = - torch.sum(F.softmax(out_F1_tu, 1) * (torch.log(F.softmax(out_F1_tu, 1) + 1e-5)), 1)
-        mask_reliable = (ent < 0.2).float().detach()
+        mask_reliable = (ent < args.thr).float().detach()
         loss_cls_F1 = (mask_reliable * criterion_reduce(out_F1_tu, pred)).sum(0) / (1e-5 + mask_reliable.sum())
 
         (loss + loss_cls_F1 + loss_msda).backward(retain_graph=False)
