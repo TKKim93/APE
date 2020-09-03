@@ -7,12 +7,13 @@ The implementation is built on the pytorch implementation of [SSDA_MME](https://
 ### Prerequisites
 
 * CUDA 10.0 or 10.1
-* Python 3.6
+* Python 3.7 (or 3.6)
 * Pytorch 1.0.1
 ```
 conda install pytorch==1.0.1 torchvision==0.2.2 cudatoolkit=10.0 -c pytorch
 ```
-* Other dependencies
+* Pillow, numpy, tqdm
+* You can easily install dependencies through
 ```
 pip install -r requirements.txt
 ```
@@ -69,6 +70,10 @@ python main.py --dataset multi --source real --target sketch --save_interval 500
 * Office-home (Art, Clipart, Product, Real)
 * Office (amazon, dslr, webcam)
 
+### Test
+```
+python test.py --dataset multi --source real --target sketch --steps 70000
+```
 ### checkpoint samples
 * (DomainNet) Real to Sketch  [BaseNet](https://drive.google.com/file/d/1mwG1ClXzsyC3Pvq7WnlJfvtVwZdlQLxy/view?usp=sharing) / 
                               [Classifier](https://drive.google.com/file/d/1cO8YEaFWykRw7Pzw-xJcWx3ERioUBp_L/view?usp=sharing)
