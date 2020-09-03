@@ -71,6 +71,7 @@ python main.py --dataset multi --source real --target sketch --save_interval 500
 * Office (amazon, dslr, webcam)
 
 ### Test
+* DomainNet (clipart, painting, real, sketch)
 ```
 python test.py --dataset multi --source real --target sketch --steps 70000
 ```
