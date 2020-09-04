@@ -56,8 +56,8 @@ if "resnet" in args.net:
     F1 = Predictor_deep_latent(num_class=len(class_list), inc=inc)
 else:
     F1 = Predictor_latent(num_class=len(class_list), inc=inc, temp=args.T)
-G = G.cuda()
-F1 = F1.cuda()
+G = torch.nn.DataParallel(G).cuda()
+F1 = torch.nn.DataParallel(F1).cuda()
 
 G_dict = os.path.join(args.checkpath, "G_{}_{}_to_{}_step_{}.pth.tar".format(args.dataset, args.source, args.target, args.steps))
 pretrained_dict = torch.load(G_dict)
