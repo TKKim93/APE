@@ -1,8 +1,8 @@
-# [ECCV 2020] Attract, Perturb, and Explore: Learning a Feature Alignment Network for Semi-supervised Domain Adaptation
+# [Attract, Perturb, and Explore: Learning a Feature Alignment Network for Semi-supervised Domain Adaptation (ECCV 2020)](https://arxiv.org/pdf/2007.09375.pdf)
 
 ### Acknowledgment
 
-The implementation is built on the pytorch implementation of [SSDA_MME](https://github.com/jwyang/faster-rcnn.pytorch) and we refer a specific module in [DTA](https://github.com/postBG/DTA.pytorch).
+The implementation is built on the pytorch implementation of [SSDA_MME](https://github.com/VisionLearningGroup/SSDA_MME) and we refer a specific module in [DTA](https://github.com/postBG/DTA.pytorch).
 
 ### Prerequisites
 
