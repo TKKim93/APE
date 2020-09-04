@@ -1,4 +1,4 @@
-# Attract, Perturb, and Explore: Learning a Feature Alignment Network for Semi-supervised Domain Adaptation
+# [ECCV 2020] Attract, Perturb, and Explore: Learning a Feature Alignment Network for Semi-supervised Domain Adaptation
 
 ### Acknowledgment
 
