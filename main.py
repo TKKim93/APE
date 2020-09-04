@@ -80,29 +80,6 @@ lr = args.lr
 G = torch.nn.DataParallel(G).cuda()
 F1 = torch.nn.DataParallel(F1).cuda()
 
-# im_data_s = torch.FloatTensor(1)
-# im_data_t = torch.FloatTensor(1)
-# im_data_tu = torch.FloatTensor(1)
-# gt_labels_s = torch.LongTensor(1)
-# gt_labels_t = torch.LongTensor(1)
-# sample_labels_t = torch.LongTensor(1)
-# sample_labels_s = torch.LongTensor(1)
-#
-# im_data_s = im_data_s.cuda()
-# im_data_t = im_data_t.cuda()
-# im_data_tu = im_data_tu.cuda()
-# gt_labels_s = gt_labels_s.cuda()
-# gt_labels_t = gt_labels_t.cuda()
-# sample_labels_t = sample_labels_t.cuda()
-# sample_labels_s = sample_labels_s.cuda()
-#
-# im_data_s = Variable(im_data_s)
-# im_data_t = Variable(im_data_t)
-# im_data_tu = Variable(im_data_tu)
-# gt_labels_s = Variable(gt_labels_s)
-# gt_labels_t = Variable(gt_labels_t)
-# sample_labels_t = Variable(sample_labels_t)
-# sample_labels_s = Variable(sample_labels_s)
 
 if os.path.exists(args.checkpath) == False:
     os.mkdir(args.checkpath)
@@ -191,6 +168,7 @@ def train():
         optimizer_f = inv_lr_scheduler(param_lr_f, optimizer_f, step,
                                        init_lr=args.lr)
         lr = optimizer_f.param_groups[0]['lr']
+
         if step % len_train_target == 0:
             data_iter_t = iter(target_loader)
         if step % len_train_target_semi == 0:
@@ -202,6 +180,7 @@ def train():
         data_t = next(data_iter_t)
         data_t_unl = next(data_iter_t_unl)
         data_s = next(data_iter_s)
+
         im_data_s = Variable(data_s[0].cuda())
         gt_labels_s = Variable(data_s[1].cuda())
         im_data_t = Variable(data_t[0].cuda())
@@ -235,14 +214,15 @@ def train():
         # exploration scheme
         pred = out_F1_tu.data.max(1)[1].detach()
         ent = - torch.sum(F.softmax(out_F1_tu, 1) * (torch.log(F.softmax(out_F1_tu, 1) + 1e-5)), 1)
-        mask_reliable = (ent < args.thr).float().detach()
+        mask_reliable = (ent < thr).float().detach()
         loss_cls_F1 = (mask_reliable * criterion_reduce(out_F1_tu, pred)).sum(0) / (1e-5 + mask_reliable.sum())
 
         (loss + loss_cls_F1 + loss_msda).backward(retain_graph=False)
         group_step([optimizer_g, optimizer_f])
         zero_grad_all()
         if step % 20 == 0:
-            print(loss.cpu().data, loss_cls_F1.cpu().data, loss_msda.cpu().data, end=' | ')
+            print('step %d' % step, 'loss_cls: {:.4f}'.format(loss.cpu().data), ' | ', 'loss_Attract: {:.4f}'.format(loss_msda.cpu().data), ' | ', \
+                  'loss_Explore: {:.4f}'.format(loss_cls_F1.cpu().item()), end=' | ')
 
         # perturbation scheme
         bs = gt_labels_s.size(0)
@@ -260,7 +240,7 @@ def train():
 
 
         if step % 20 == 0:
-            print(target_vat_loss2.cpu().data)
+            print('loss_Perturb: {:.4f}'.format(target_vat_loss2.cpu().data))
         G.zero_grad()
         F1.zero_grad()
         zero_grad_all()
