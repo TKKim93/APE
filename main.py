@@ -255,13 +255,13 @@ def train():
                 print('saving model')
                 torch.save(G.state_dict(),
                            os.path.join(args.checkpath,
-                                        "G_iter_model_{}_{}_"
+                                        "G_{}_{}_"
                                         "to_{}_step_{}.pth.tar".
                                         format(args.dataset, args.source,
                                                args.target, step)))
                 torch.save(F1.state_dict(),
                            os.path.join(args.checkpath,
-                                        "F1_iter_model_{}_{}_"
+                                        "F1_{}_{}_"
                                         "to_{}_step_{}.pth.tar".
                                         format(args.dataset, args.source,
                                                args.target, step)))
