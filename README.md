@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ```
 
 ### Dataset Structure
-You can download the datasets by following the instructions in [SSDA_MME](https://github.com/jwyang/faster-rcnn.pytorch).
+You can download the datasets by following the instructions in [SSDA_MME](https://github.com/VisionLearningGroup/SSDA_MME).
 ```
 data---
      |
