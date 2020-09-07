@@ -75,6 +75,8 @@ python main.py --dataset multi --source real --target sketch --save_interval 500
 ```
 python test.py --dataset multi --source real --target sketch --steps 70000
 ```
-### checkpoint samples
+### Checkpoint samples
 * (DomainNet) Real to Sketch  [BaseNet](https://drive.google.com/file/d/1mwG1ClXzsyC3Pvq7WnlJfvtVwZdlQLxy/view?usp=sharing) / 
                               [Classifier](https://drive.google.com/file/d/1cO8YEaFWykRw7Pzw-xJcWx3ERioUBp_L/view?usp=sharing)
+### 5,10,20-shot Splits
+* (DomainNet) [splits](https://drive.google.com/file/d/1PhNe8-CmKJq3zCdl0MM8a4tcEbwMbjb0/view?usp=sharing)
