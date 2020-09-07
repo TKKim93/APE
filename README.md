@@ -78,5 +78,6 @@ python test.py --dataset multi --source real --target sketch --steps 70000
 ### Checkpoint samples
 * (DomainNet) Real to Sketch  [BaseNet](https://drive.google.com/file/d/1mwG1ClXzsyC3Pvq7WnlJfvtVwZdlQLxy/view?usp=sharing) / 
                               [Classifier](https://drive.google.com/file/d/1cO8YEaFWykRw7Pzw-xJcWx3ERioUBp_L/view?usp=sharing)
-### 5,10,20-shot Splits
+### Additional Splits
+We provide 5, 10, 20-shot splits for four domains (clipart, painting, real, sketch) of the DomainNet dataset.
 * (DomainNet) [splits](https://drive.google.com/file/d/1PhNe8-CmKJq3zCdl0MM8a4tcEbwMbjb0/view?usp=sharing)
